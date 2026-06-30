@@ -44,11 +44,12 @@ endmodule
 // ============================================================================
 // ALU Control Unit
 // Generates ALU control signal from ALUOp and function code
-// ============================================================================
+// Decoding the instruction
+// =========================================================================
 
 module alu_control (
-    input wire [2:0] alu_op,
-    input wire [5:0] funct,
+    input wire [2:0] alu_op, //processor will give these on basis of fetched instruction (function3 parameter)
+    input wire [5:0] funct,  //processor will give these on basis of fetched instruction (function7 parameter)
     output reg [3:0] alu_control
 );
 
