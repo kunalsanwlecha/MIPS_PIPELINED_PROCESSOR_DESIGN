@@ -36,6 +36,7 @@ module register_file (
     
     // Asynchronous read with internal forwarding
     // If we're writing to the register being read in the same cycle, forward the write data
+    // Mitigating the RAW dependency 
     assign read_data1 = (read_reg1 == 5'd0) ? 32'd0 :
                         (reg_write && (write_reg == read_reg1) && (write_reg != 5'd0)) ? write_data :
                         registers[read_reg1];
